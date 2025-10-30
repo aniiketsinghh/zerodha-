@@ -1,4 +1,6 @@
 import React from 'react'
+import { Routes,Route } from 'react-router'
+import Home from './component/Home'
 
 const App = () => {
   return (
