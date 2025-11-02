@@ -1,3 +1,5 @@
-Based on full stack.
-authenticated
-live charts
+A MERN STACK TRADING WEBSITE 
+FULLY AUTHENTICATED
+LIVE CHARTS
+BUY & SELL STOCKS
+
