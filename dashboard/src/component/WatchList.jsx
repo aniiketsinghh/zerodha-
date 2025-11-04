@@ -9,7 +9,7 @@ const WatchList = () => {
           name="search"
           id="search"
           placeholder="Search eg:infy, bse, nifty fut weekly, gold mcx"
-          className="search"
+          className="search font-bold text-zinc-600"
         />
         <span className="counts"> 9 / 50</span>
       </div>

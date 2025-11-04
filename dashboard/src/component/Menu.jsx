@@ -1,8 +1,16 @@
 import React from "react";
 import { Link } from "react-router";
+import { useState } from "react";
 
 
 const Menu = () => {
+
+  const [isProfileDropdownOpen , setIsProfileDropdownOpen] = useState(false);
+
+  const handleProfileClick = () => {
+    setIsProfileDropdownOpen(!isProfileDropdownOpen);
+  };
+
   return (
     <>
     <div className="menu-container">
@@ -10,7 +18,7 @@ const Menu = () => {
       <div className="menus">
         <ul>
           <li>
-            <Link to="/dashboard">Dashboard</Link >
+            <Link to="/">Dashboard</Link >
           </li>
           <li>
             <Link to="/orders">Orders</Link >
@@ -28,7 +36,7 @@ const Menu = () => {
         </ul>
         <hr />
         <div className="profile" 
-        // onClick={handleProfileClick}
+        onClick={handleProfileClick}
         >
           <div className="avatar">ZU</div>
           <p className="username">USERID</p>
