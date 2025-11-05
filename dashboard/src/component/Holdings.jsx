@@ -1,8 +1,23 @@
 import React from "react";
-
-import { holdings } from "../data/data";
+import axios from "axios";
+import { useState, useEffect } from "react";
+// import { holdings } from "../data/data";  //just for static data
 
 const Holdings = () => {
+  const [holdings, setHoldings] = useState([]);
+
+  useEffect(() => {
+    const fetchHoldings = async () => {
+      try {
+        const response = await axios.get("http://localhost:5001/holdings").then((res)=>
+          setHoldings(res.data)
+       );
+        console.log(response.data);
+      } catch (error) {
+        console.error("Error fetching holdings data:", error);
+      }};
+    fetchHoldings();
+  });
   return (
     <>
       <h3 className="title">Holdings ({holdings.length})</h3>

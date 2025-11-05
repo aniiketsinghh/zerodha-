@@ -1,8 +1,23 @@
 import React from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
-import { positions } from "../data/data";
+// import { positions } from "../data/data";
 
 const Positions = () => {
+  const [positions, setPositions] = useState([]);
+   useEffect(() => {
+      const fetchHoldings = async () => {
+        try {
+          const response = await axios.get("http://localhost:5001/positions").then((res)=>
+            setPositions(res.data)
+         );
+         console.log(response.data);
+        } catch (error) {
+          console.error("Error fetching holdings data:", error);
+        }};
+      fetchHoldings();
+    });
   return (
     <>
       <h3 className="title">Positions ({positions.length})</h3>
