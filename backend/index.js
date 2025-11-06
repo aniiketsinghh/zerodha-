@@ -2,18 +2,22 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import connectDB from "./DB/Connect.js"
-import Holding from './Schemas/Holdings.js';
-import Position from './Schemas/Positions.js';
+import DataRoute from "./routes/dataRoute.js"
+import UserData from"./routes/userRoute.js"
+import cookieParser from 'cookie-parser';
+
 
 const PORT=process.env.PORT || 5000;
 dotenv.config();
+
 const app=express();
 app.use(cors(
     {
         origin:"*",
-        withCredentials:true,
+        credentials:true,
     }
 ));
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 
@@ -172,17 +176,8 @@ app.use(express.urlencoded({extended:false}));
 //     res.send("Hello hyyyy backend");
 // });
 
-app.get("/holdings",async(req,res)=>{
-   let holdings=  await Holding.find({});
-        res.json(holdings);
-    
-});
-
-app.get("/positions",async(req,res)=>{
-    let positions =await Position.find({});
-        res.send(positions);
-    
-});
+app.use("/api/auth",UserData)
+app.use("/api/data",DataRoute);
 
 
 

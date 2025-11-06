@@ -9,7 +9,7 @@ const Positions = () => {
    useEffect(() => {
       const fetchHoldings = async () => {
         try {
-          const response = await axios.get("http://localhost:5001/positions").then((res)=>
+          const response = await axios.get("http://localhost:5001/api/data/positions").then((res)=>
             setPositions(res.data)
          );
          console.log(response.data);

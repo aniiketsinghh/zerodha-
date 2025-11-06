@@ -9,7 +9,7 @@ const Holdings = () => {
   useEffect(() => {
     const fetchHoldings = async () => {
       try {
-        const response = await axios.get("http://localhost:5001/holdings").then((res)=>
+        const response = await axios.get("http://localhost:5001/api/data/holdings").then((res)=>
           setHoldings(res.data)
        );
         console.log(response.data);
