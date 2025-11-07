@@ -73,7 +73,7 @@ export default function AuthPage() {
               <img
                 src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
                 alt="trading"
-                className="w-32 mx-auto mt-4 drop-shadow-lg animate-bounce"
+                className="w-32 mx-auto mt-4 drop-shadow-lg"
               />
             </motion.div>
           ) : (
@@ -92,7 +92,7 @@ export default function AuthPage() {
               <img
                 src="https://cdn-icons-png.flaticon.com/512/4341/4341139.png"
                 alt="login"
-                className="w-32 mx-auto mt-4 drop-shadow-lg animate-bounce"
+                className="w-32 mx-auto mt-4 drop-shadow-lg"
               />
             </motion.div>
           )}
