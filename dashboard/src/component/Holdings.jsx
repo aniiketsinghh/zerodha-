@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { VerticalGraph } from "./VerticalGraph";
 // import { holdings } from "../data/data";  //just for static data
 
 const Holdings = () => {
@@ -18,6 +19,26 @@ const Holdings = () => {
       }};
     fetchHoldings();
   });
+
+  // const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  const labels = holdings.map((stock) => stock["name"]);
+
+ const data = {
+  labels,
+  datasets: [
+    {
+      label: 'Stoack name',
+      data: holdings.map((holding) => holding.price),
+      backgroundColor: 'rgba(255, 99, 132, 0.5)',
+    },
+//     {
+//       label: 'Dataset 2',
+//       data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+//       backgroundColor: 'rgba(53, 162, 235, 0.5)',
+//     },
+  ],
+};
+
   return (
     <>
       <h3 className="title">Holdings ({holdings.length})</h3>
@@ -77,7 +98,9 @@ const Holdings = () => {
           <p>P&L</p>
         </div>
       </div>
+       <VerticalGraph data={data} />
     </>
+   
   );
 };
 
